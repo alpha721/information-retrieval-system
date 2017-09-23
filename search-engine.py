@@ -1,4 +1,8 @@
+from __future__ import unicode_literals
 import csv, os
+import sys
+reload(sys)
+sys.setdefaultencoding('ISO-8859-1')
 import string
 from collections import Counter
 from nltk import *
@@ -33,13 +37,29 @@ def tf(term, document):
     return freq(term,document)
 
 def freq(term,document):
-    return document.split().count(term)
+    return document.count(term)
 
-vocabulary = set()
 
-doc_term_matrix = []
+def stemmer(doc):
+    stemmed_doc = []
+    porter_stemmer = PorterStemmer()
+    for word in doc:
+        stemmed_doc.append(porter_stemmer.stem(word))
+    return stemmed_doc
 
-print 'Our Vocabulary vector is [' + ', '.join(list(vocabulary)) + ']'
+
+def lemmatizer(doc):
+    lemmatized_doc = []
+    wordnet_lemmatizer = WordNetLemmatizer()
+    for word in doc:
+        lemmatized_doc.append(wordnet_lemmatizer.lemmatize(word))
+    return lemmatized_doc
+
+#vocabulary = set()
+
+#doc_term_matrix = []
+
+#print 'Our Vocabulary vector is [' + ', '.join(list(vocabulary)) + ']'
 
 def main():
     file = open('Articles.csv')
@@ -89,16 +109,24 @@ def main():
 #    for key in table:
 #        print key, ": " , table[key]
 
+
     for doc_id in range(0,n):
         lexicon = set()
+        bag_of_words = []
         doc = docs[doc_id][0] + " " + docs[doc_id][1] + " " +  docs[doc_id][2] + " " +  docs[doc_id][3]
         #doc = docs[doc_id]
-        print 'doc is : ', doc
+   #     print 'doc is : ', doc
         lexicon.update(word_tokenize(doc))
+        lexicon = stemmer(lexicon)
+        lexicon = lemmatizer(lexicon)
+        bag_of_words = word_tokenize(doc)
+        bag_of_words = stemmer(bag_of_words)
+        bag_of_words = lemmatizer(bag_of_words)
+
    #    print lexicon
         for word in lexicon:
            doc_ref = {}
-           doc_ref[doc_id] = tf(word,doc)
+           doc_ref[doc_id] = tf(word,bag_of_words)
            if word not in table:
                table[word] = []
            table[word].append(doc_ref)
