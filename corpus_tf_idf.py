@@ -7,15 +7,8 @@ import math
 import numpy as np
 from collections import Counter
 from nltk import *
-import time
 
-"""
-this code takes in a search query and retrieves the top ten documents relevant to the query
-
-"""
-
-
-""" builds the lexemes of the corpus by tokenizing, stemming and lemmatizing """
+"""builds the lexemes of the corpus by tokenizing, stemming and lemmatizing """
 def build_lexicon(corpus):
     lexicon = set()
     for doc in corpus:
@@ -34,7 +27,7 @@ def tf(term, document):
 def freq(term,document):
     return document.count(term)
 
-""" function for stemming """
+""" function for stemming and lemmatizing """
 def stemmer(doc):
     stemmed_doc = []
     porter_stemmer = PorterStemmer()
@@ -51,6 +44,7 @@ def lemmatizer(doc):
     for word in doc:
         lemmatized_doc.append(wordnet_lemmatizer.lemmatize(word))
     return lemmatized_doc
+
 
 """ calculates the number of document frequncy of a term in the corpus """
 def numDocsContaining(word, doclist):
@@ -72,7 +66,7 @@ def idf(word, doclist):
 
 
 
-""" the original matrix """
+""" the term frequency(tf) matrix """
 doc_term_matrix = []  
 
 """ finds the unit vector corresponding to the vector passed """
@@ -80,7 +74,7 @@ def normalizer(vec):
     denom = np.sum([el**2 for el in vec])
     return [(el / math.sqrt(denom)) for el in vec]
  
-""" builds the matrix for a given idf_vector """
+""" builds the inverse document frequncy(idf) matrix for a given idf_vector """
 def build_idf_matrix(idf_vector):
     idf_mat = np.zeros((len(idf_vector), len(idf_vector)))
     np.fill_diagonal(idf_mat, idf_vector)
@@ -98,23 +92,21 @@ def cosine(vector1,vector2):
         return float(np.dot(vector1,vector2) / (np.linalg.norm(vector1) * np.linalg.norm(vector2)))
 
 
-""" finds the idf-score of the query """
-def q_idf(word, query, doclist):
-    n_samples = len(doclist)+1
-    df = numDocsContaining(word, doclist)
-    return np.log(n_samples / 1+df)
-
-
     
 def main():
+    
+    """
+    opens the file containing the dataset and reads the data 
 
-    """ Dependency code """
+    """
+
     file = open('Articles.csv')
     file_reader = csv.reader(file)
     file_data = list(file_reader)
     docs = []
-    
-    #number = len(file_data) 
+   
+    """ number of documents in the corpus """
+    #number = len(file_data)
     number = 10 #testing for 10 documents 
      
     for i in range(0,number):
@@ -123,66 +115,51 @@ def main():
     new_docs = []
     for i in range(0,number):
       doc = []
-      """ this line is to include all columns of the article into a single document """
-      doc = docs[i][0] + " " + docs[i][1] + " " + docs[i][2] + " " + docs[i][3]
+      # this line is to include all columns of the document as a single thing
+      doc = docs[i][2] + " " + docs[i][3] + " " + docs[i][1] + " " + docs[i][0]
       new_docs.append(doc)
      
     docs = new_docs
     
-        
     vocab = build_lexicon(docs)
-    
-    """
-    opens the csv file containing tf-idf matrix and reads in into a matrix
 
-    """
 
-    doc_term_matrix_tfidf_l2 = numpy.loadtxt(open("out2.csv","rb"),delimiter=",")
- 
-    """ read in a query provided by the user """
-
-    query = raw_input("Enter the search query: ")
- 
-    start = time.time()
-
-    """
-    The following functions are used to convert the entered query into a query vector.
-    Preprocessing is done by tokenizing, stemming and lemmatizing 
-    
-    """
-    q_lexicon=[] 
-
-    """ Tokenize the query """
-    q_lexicon = word_tokenize(query)
-
-    """ Stem the query """
-    q_lexicon = stemmer(q_lexicon)
+    for doc in docs:
         
-    """ Lemmatizes the query """    
-    q_lexicon = lemmatizer(q_lexicon)
+        """ it contains the tokens ( stemmed and lemmatized) from the document under consideration """
+        lexicon = []           
         
-    """ Finds the term frequency in the query """
-    q_tf_vector = [tf(word, q_lexicon) for word in vocab]
-    
-    """ Finds the idf-vector corresponding to the query """
-    q_idf_vector = [q_idf(word,q_lexicon,docs) for word in vocab]
-    
-    q_idf_matrix = build_idf_matrix(q_idf_vector)
-    
-    """ Finds the tf-idf vector for the query """
-    q_tfidf_matrix=normalizer( np.dot(q_tf_vector, q_idf_matrix))
+        """ tokenize the words """
+        lexicon = word_tokenize(doc)
+        
+        """ stem and lemmatize the words """
+        lexicon = stemmer(lexicon)
+        
+        """ constructs the tf-vector for each term in the document """
+        tf_vector = [tf(word, lexicon) for word in vocab]
 
-    """ Retrieves the documents in order of their relavency to the query """
-    ratings = search(q_tfidf_matrix,doc_term_matrix_tfidf_l2)
-   
-    """ Displays the top ten documents of the search """
-    for i in ratings[0:10]:
-        print docs[i] 
-    end = time.time()
+        """ builds the tf matrix """
+        doc_term_matrix.append(tf_vector)     
     
-    t = end - start
     
-    print "time taken for searching documents: " 
-    print t
+    my_idf_vector = [idf(word, docs) for word in vocab]
+    
+    my_idf_matrix = build_idf_matrix(my_idf_vector)
+    
+    doc_term_matrix_tfidf = []
+
+    """performing tf-idf matrix multiplication  """
+    for tf_vector in doc_term_matrix:
+        doc_term_matrix_tfidf.append(np.dot(tf_vector, my_idf_matrix))
+
+    """ normalizing the tf-idf matrix """
+    doc_term_matrix_tfidf_l2 = []
+    for tf_vector in doc_term_matrix_tfidf:
+        doc_term_matrix_tfidf_l2.append(normalizer(tf_vector))   
+    
+    """ saves the calculated tf-idf matrix in a csv file """
+    f = open('out2.csv','w')
+    numpy.savetxt(f,doc_term_matrix_tfidf_l2,delimiter=',', newline = '\n')
+    f.close()
 
 main()
