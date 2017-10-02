@@ -69,10 +69,12 @@ def main():
     docs = []
     docs.append(file_data[1])
     docs.append(file_data[2])
+    docs.append(file_data[3])
 #    print docs[0]
 #    word = word_tokenize(docs[0])
 #    print word
     docs[0][0] += " by by by by"
+    docs[1][0] += " by by by by"
 #    print docs[0]
 #    vocabulary = build_lexicon(docs)
 
@@ -134,5 +136,23 @@ def main():
         print key, ": " , table[key]
 
 
+    query = "karachi public transport in by"
+    query = query.lower()
+    query = word_tokenize(query)
+    query = stemmer(query)
+    query = lemmatizer(query)
+#    new_query = []
+#    for token in query:
+#        if token not in stop_words:
+#            new_query.append(token)
+#    query = new_query
+#
+#    for token in query:
+#        for i in range(0,len(table[token])):
+#            doc_ids = map(token,[table[token][i].keys()])
+#    print doc_ids
+
+#    for i in range(0,len(table['by'])):
+#        print table['by'][i].keys()
 
 main()

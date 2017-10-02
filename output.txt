@@ -1,0 +1,300 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 97 entries, 3 to 99
+Data columns (total 3 columns):
+Article     97 non-null object
+Heading     97 non-null object
+NewsType    97 non-null object
+dtypes: object(3)
+memory usage: 2.3+ KB
+Number of documents accounted for = 3
+Top words in document 1
+Word: sink, TF-IDF: 0.55451
+Top words in document 2
+Word: below, TF-IDF: 0.4852
+Top words in document 3
+Word: 5.5, TF-IDF: 0.43128
+Top words in document 4
+Word: psychological, TF-IDF: 0.55451
+Top words in document 5
+Word: falls, TF-IDF: 0.64693
+Top words in document 6
+Word: 49.80, TF-IDF: 0.4852
+Top words in document 7
+Word: growth, TF-IDF: 0.43128
+Top words in document 8
+Word: 0.74, TF-IDF: 0.64693
+Top words in document 9
+Word: 0.24, TF-IDF: 0.55451
+Top words in document 10
+Word: repor, TF-IDF: 0.57935
+Top words in document 11
+Word: take, TF-IDF: 0.35287
+Top words in document 12
+Word: steady, TF-IDF: 0.77631
+Top words in document 13
+Word: ogra, TF-IDF: 0.38816
+Top words in document 14
+Word: electricity, TF-IDF: 0.38816
+Top words in document 15
+Word: mostly, TF-IDF: 0.4852
+Top words in document 16
+Word: 1.2, TF-IDF: 0.4852
+Top words in document 17
+Word: king, TF-IDF: 0.27725
+Top words in document 18
+Word: collecting, TF-IDF: 0.4852
+Top words in document 19
+Word: brunei, TF-IDF: 0.55451
+Top words in document 20
+Word: weighing, TF-IDF: 0.4852
+Top words in document 21
+Word: litr, TF-IDF: 0.35287
+Top words in document 22
+Word: maintains, TF-IDF: 0.64693
+Top words in document 23
+Word: sharply, TF-IDF: 0.43128
+Top words in document 24
+Word: warns, TF-IDF: 0.4852
+Top words in document 25
+Word: surge, TF-IDF: 0.38816
+Top words in document 26
+Word: produ, TF-IDF: 0.35287
+Top words in document 27
+Word: agency, TF-IDF: 0.77631
+Top words in document 28
+Word: rally, TF-IDF: 0.77631
+Top words in document 29
+Word: load, TF-IDF: 0.35287
+Top words in document 30
+Word: extend, TF-IDF: 0.83176
+Top words in document 31
+Word: conclude, TF-IDF: 0.38816
+Top words in document 32
+Word: arrives, TF-IDF: 0.38816
+Top words in document 33
+Word: jobs, TF-IDF: 0.49659
+Top words in document 34
+Word: renewed, TF-IDF: 0.32346
+Top words in document 35
+Word: 1.09, TF-IDF: 0.64693
+Top words in document 36
+Word: january, TF-IDF: 0.43128
+Top words in document 37
+Word: gai, TF-IDF: 0.6572
+Top words in document 38
+Word: hsbc, TF-IDF: 0.4852
+Top words in document 39
+Word: predicts, TF-IDF: 0.4852
+Top words in document 40
+Word: kashmir, TF-IDF: 0.55451
+Top words in document 41
+Word: wants, TF-IDF: 0.55451
+Top words in document 42
+Word: australia, TF-IDF: 0.43128
+Top words in document 43
+Word: 215, TF-IDF: 0.55451
+Top words in document 44
+Word: number, TF-IDF: 0.77631
+Top words in document 45
+Word: taxes, TF-IDF: 0.55451
+Top words in document 46
+Word: trad, TF-IDF: 0.5314
+Top words in document 47
+Word: gai, TF-IDF: 0.6572
+Top words in document 48
+Word: about, TF-IDF: 0.43128
+Top words in document 49
+Word: 3.24, TF-IDF: 0.38816
+Top words in document 50
+Word: close, TF-IDF: 0.43128
+Top words in document 51
+Word: deal, TF-IDF: 0.55451
+Top words in document 52
+Word: billion, TF-IDF: 0.38816
+Top words in document 53
+Word: inventory, TF-IDF: 0.43128
+Top words in document 54
+Word: apple, TF-IDF: 0.38816
+Top words in document 55
+Word: yor, TF-IDF: 0.64693
+Top words in document 56
+Word: 31, TF-IDF: 0.4852
+Top words in document 57
+Word: slid, TF-IDF: 0.86902
+Top words in document 58
+Word: decreases, TF-IDF: 0.64693
+Top words in document 59
+Word: slightly, TF-IDF: 0.97039
+Top words in document 60
+Word: tokyo, TF-IDF: 0.7971
+Top words in document 61
+Word: likely, TF-IDF: 0.43128
+Top words in document 62
+Word: volatile, TF-IDF: 0.97039
+Top words in document 63
+Word: help, TF-IDF: 0.35287
+Top words in document 64
+Word: recoils, TF-IDF: 0.77631
+Top words in document 65
+Word: 0.70, TF-IDF: 0.55451
+Top words in document 66
+Word: the, TF-IDF: 0.61843
+Top words in document 67
+Word: pact, TF-IDF: 0.32346
+Top words in document 68
+Word: jobs, TF-IDF: 0.49659
+Top words in document 69
+Word: town, TF-IDF: 0.38816
+Top words in document 70
+Word: integral, TF-IDF: 0.43128
+Top words in document 71
+Word: fbr, TF-IDF: 0.29858
+Top words in document 72
+Word: emerging, TF-IDF: 0.38816
+Top words in document 73
+Word: shut, TF-IDF: 0.43128
+Top words in document 74
+Word: adv, TF-IDF: 1.1587
+Top words in document 75
+Word: improving, TF-IDF: 0.97039
+Top words in document 76
+Word: warning, TF-IDF: 0.55451
+Top words in document 77
+Word: sng, TF-IDF: 0.38816
+Top words in document 78
+Word: hits, TF-IDF: 0.57935
+Top words in document 79
+Word: cut, TF-IDF: 0.49659
+Top words in document 80
+Word: nears, TF-IDF: 0.57935
+Top words in document 81
+Word: raise, TF-IDF: 0.55451
+Top words in document 82
+Word: index, TF-IDF: 0.38816
+Top words in document 83
+Word: losses, TF-IDF: 0.57935
+Top words in document 84
+Word: fed, TF-IDF: 0.55451
+Top words in document 85
+Word: 13, TF-IDF: 0.43128
+Top words in document 86
+Word: drag, TF-IDF: 0.35287
+Top words in document 87
+Word: bond, TF-IDF: 0.77631
+Top words in document 88
+Word: stockpiles, TF-IDF: 0.43128
+Top words in document 89
+Word: reaches, TF-IDF: 0.55451
+Top words in document 90
+Word: wall, TF-IDF: 0.43128
+Top words in document 91
+Word: inspired, TF-IDF: 0.64693
+Top words in document 92
+Word: continues, TF-IDF: 0.43128
+Top words in document 93
+Word: iran, TF-IDF: 0.43128
+Top words in document 94
+Word: goes, TF-IDF: 0.43128
+Top words in document 95
+Word: plung, TF-IDF: 0.35287
+Top words in document 96
+Word: increased, TF-IDF: 0.35287
+Top words in document 97
+Word: sector, TF-IDF: 0.43128
+Document 0
+Document 1
+Document 2
+Document 3
+Document 4
+Document 5
+Document 6
+Document 7
+Document 8
+Document 9
+Document 10
+Document 11
+Document 12
+Document 13
+Document 14
+Document 15
+Document 16
+Document 17
+Document 18
+Document 19
+Document 20
+Document 21
+Document 22
+Document 23
+Document 24
+Document 25
+Document 26
+Document 27
+Document 28
+Document 29
+Document 30
+Document 31
+Document 32
+Document 33
+Document 34
+Document 35
+Document 36
+Document 37
+Document 38
+Document 39
+Document 40
+Document 41
+Document 42
+Document 43
+Document 44
+Document 45
+Document 46
+Document 47
+Document 48
+Document 49
+Document 50
+Document 51
+Document 52
+Document 53
+Document 54
+Document 55
+Document 56
+Document 57
+Document 58
+Document 59
+Document 60
+Document 61
+Document 62
+Document 63
+Document 64
+Document 65
+Document 66
+Document 67
+Document 68
+Document 69
+Document 70
+Document 71
+Document 72
+Document 73
+Document 74
+Document 75
+Document 76
+Document 77
+Document 78
+Document 79
+Document 80
+Document 81
+Document 82
+Document 83
+Document 84
+Document 85
+Document 86
+Document 87
+Document 88
+Document 89
+Document 90
+Document 91
+Document 92
+Document 93
+Document 94
+Document 95
+Document 96
